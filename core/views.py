@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views import View
 
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -67,4 +67,11 @@ class Register(View):
                 return HttpResponseRedirect('/')
         else:
             return render(request, self.template, {'form': form})
+
+
+class Logout(View):
+    def get(self, request):
+        logout(request)
+        return HttpResponseRedirect('/')
+
     
