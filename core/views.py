@@ -9,6 +9,8 @@ from django.contrib.auth import login, authenticate
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from .forms import UserForm
+
 
 
 class Index(LoginRequiredMixin, View):
@@ -50,5 +52,19 @@ class Register(View):
     template = 'register.html'
 
     def get(self, request):
-        users = User.objects.all()
-        return render(request, self.template, {'users':users})
+        form = UserForm()
+        return render(request, self.template, {'form': form})
+
+    def post(self, request):
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = request.POST['username']
+            password = request.POST['password2']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect('/')
+        else:
+            return render(request, self.template, {'form': form})
+    
