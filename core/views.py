@@ -42,7 +42,7 @@ class Login(View):
 
 
 class Password(View):
-    template = 'password.html'
+    template = 'password-reset.html'
 
     def get(self, request):
         return render(request, self.template)
