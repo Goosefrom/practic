@@ -39,6 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'crispy_forms',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
+
+]
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -130,3 +144,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '#*&$@&#$(*&===@gmail.com' #allow https://myaccount.google.com/lesssecureapps
 EMAIL_HOST_PASSWORD = 'passwordToGmail'
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "/"

@@ -34,8 +34,10 @@
                                     <div class="small text-center"><a href="/password-reset">Forgot Password?</a></div>
                                     </div>
                                     <div class="card-body row">
-                                        <div class="small"><a href="/#"><img src="/static/images/google.jpg" width="30" height="30"></a></div>
-                                        <div class="small"><a href="/#"><img src="/static/images/facebook.jpg" width="30" height="30"></a></div>
+                                        {% load socialaccount %}
+                                        {% providers_media_js %}
+                                        <div class="small"><a href="{% provider_login_url "google" method="js_sdk" %}"><img src="/static/images/google.jpg" width="30" height="30"></a></div>
+                                        <div class="small"><a href="{% provider_login_url "facebook" method="js_sdk" %}"><img src="/static/images/facebook.jpg" width="30" height="30"></a></div>
                                     </div>
                                     <div class="card-footer text-center">
                                         <div class="small"><a href="/register/">Need an account? Sign up!</a></div>
