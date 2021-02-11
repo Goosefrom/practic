@@ -4,7 +4,15 @@
 Facebook (https://developers.facebook.com/docs/facebook-login)
 Google (https://developers.google.com/identity/)
 Інші соцмережі на ваш вибір (необов'язково)
-# Practic
+
+# practic
+Запуск: для коректної роботи аутентифікації через google та facebook(тут провина facebook api) треба запускати з неявним localhost, тобто: 
+Windows: `python manage.py runserver localhost:8000`
+Mac\Linux: `python3 manage.py runserver localhost:8000`
+
+`Додано файл requirements.txt` - в процесі, не все ж зразу)
+
+# Git Practic
  Ці команди вводяться в git bash або в консолі якщо ви при установці вказали роботу з гітом через консоль; 
  
  перед введенням команд потрібно перейти в директорію вашого проекту (якщо через баш то можна перейти в папку там пкм і вибрати git bash)
