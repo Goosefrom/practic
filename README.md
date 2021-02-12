@@ -10,7 +10,9 @@ Google (https://developers.google.com/identity/)
 Windows: `python manage.py runserver localhost:8000`
 Mac\Linux: `python3 manage.py runserver localhost:8000`
 
-`Додано файл requirements.txt` - в процесі, не все ж зразу)
+Додано файл `requirements.txt` - для інсталяції всього добра: 
+Windows: `py -m pip install -r requirements.txt`
+Mac\Linux: `python3 -m pip3 install -r requirements.txt`
 
 # Git Practic
  Ці команди вводяться в git bash або в консолі якщо ви при установці вказали роботу з гітом через консоль; 
