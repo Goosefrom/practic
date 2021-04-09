@@ -10,8 +10,9 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import UserForm
-
-
+import requests
+import json
+from django.contrib import messages
 
 class Index(LoginRequiredMixin, View):
     template = 'index.html'
@@ -19,6 +20,14 @@ class Index(LoginRequiredMixin, View):
 
     def get(self, request):
         return render(request, self.template)
+
+    def upload(request):
+        if request.method == 'POST':
+            upload_file = request.FILES('document')
+            print(upload_file.name)
+            print(upload_file.size)
+        return render(request, 'index.html')
+
 
 
 class Login(View):
@@ -34,10 +43,20 @@ class Login(View):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
+        captcha_token = request.POST.get("g-recaptcha-response")
+        cap_url="https://www.google.com/recaptcha/api/siteverify"
+        cap_secret="6LeDcoYaAAAAACgrY1SN-GuVF_jCZAnizneyUenh"
+        cap_data = {"secret": cap_secret, "response":captcha_token}
+        cap_server_response=requests.post(url=cap_url, data=cap_data)
+        cap_json=json.loads(cap_server_response.text)
+        if cap_json['success']==False:
+            messages.error(request, "Invalid ReCaptcha")
+            return render(request, self.template, {'form': form})
         if user is not None:
             login(request, user)
             return HttpResponseRedirect('/')
         else:
+            messages.error(request, "Invalid Login data")
             return render(request, self.template, {'form': form})
 
 
@@ -74,4 +93,3 @@ class Logout(View):
         logout(request)
         return HttpResponseRedirect('/')
 
-    

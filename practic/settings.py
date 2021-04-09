@@ -130,3 +130,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '#*&$@&#$(*&===@gmail.com' #allow https://myaccount.google.com/lesssecureapps
 EMAIL_HOST_PASSWORD = 'passwordToGmail'
+
+#captcha:
+#html: 6LeDcoYaAAAAAH5sXXnvjlQ-F0hNrVKnnr8HrkeU
+#code: 6LeDcoYaAAAAACgrY1SN-GuVF_jCZAnizneyUenh
