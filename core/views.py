@@ -31,6 +31,16 @@ class Index(LoginRequiredMixin, View):
             print(upload_file.size)
         return render(request, 'index.html')
 
+    def index(request):
+        if request.method == 'POST' and request.FILES['myfile']:
+            myfile = request.FILES['myfile']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            uploaded_file_url = fs.url(filename)
+            print("[System] Filename: " + filename)
+            return render(request, 'index.html', {'uploaded_file_url': uploaded_file_url})
+        return render(request, 'core/templates/index.html')
+
 
 
 class Login(View):
@@ -54,12 +64,15 @@ class Login(View):
         cap_json=json.loads(cap_server_response.text)
         if cap_json['success']==False:
             messages.error(request, "Invalid ReCaptcha")
+            print("[System] User: " + username + " : invalid ReCaptcha")
             return render(request, self.template, {'form': form})
         if user is not None:
             login(request, user)
+            print("[System] User: " + username + " : was loggined")
             return HttpResponseRedirect('/')
         else:
             messages.error(request, "Invalid Login data")
+            print("[System] Access denied : invalid login data")
             return render(request, self.template, {'form': form})
 
 
@@ -86,6 +99,7 @@ class Register(View):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                print("[System] Registration : new user [ " + username + " ] wad registered. WELLCUM TO DA CLUB BUDDY!")
                 return HttpResponseRedirect('/')
         else:
             return render(request, self.template, {'form': form})
@@ -94,6 +108,7 @@ class Register(View):
 class Logout(View):
     def get(self, request):
         logout(request)
+        print("[System] Logout : was detected")
         return HttpResponseRedirect('/')
 
 def index(request):
@@ -102,8 +117,6 @@ def index(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
-        return render(request, 'index.html', {
-            'uploaded_file_url': uploaded_file_url
-        })
-    return render(request, 'core/templates/index.html')
+        return render(request, 'index.html', {'uploaded_file_url': uploaded_file_url})
+    return render(request, 'core/index.html')
 
