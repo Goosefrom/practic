@@ -14,6 +14,9 @@ import requests
 import json
 from django.contrib import messages
 
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
 class Index(LoginRequiredMixin, View):
     template = 'index.html'
     login_url = '/login/'
@@ -21,7 +24,7 @@ class Index(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, self.template)
 
-    def upload(request):
+    def post(request):
         if request.method == 'POST':
             upload_file = request.FILES('document')
             print(upload_file.name)
@@ -92,4 +95,15 @@ class Logout(View):
     def get(self, request):
         logout(request)
         return HttpResponseRedirect('/')
+
+def index(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'index.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'core/templates/index.html')
 
