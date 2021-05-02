@@ -11,11 +11,18 @@
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Login</button>
             </div>
+             <div class="card-body row">
+                <div class="small"><a href="/#"><img src="/static/images/google.jpg" width="30" height="30"></a></div>
+                <div class="small"><a href="/#"><img src="/static/images/facebook.jpg" width="30" height="30"></a></div>
+            </div>
         </form>
         <div class="border-top pt-3">
-            <small class="text-muted">
-                Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
-            </small>
+
+            <div class="small text-center"><a href="/password-reset">Forgot Password?</a></div>
+        </div>
+        <small class="text-muted">
+            Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+        </small>
         </div>
     </div>
 {% endblock content %}
