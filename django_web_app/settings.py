@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django', # <-- https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
+    'social_django',# <-- https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
 ]
 
 MIDDLEWARE = [
@@ -152,6 +152,7 @@ SOCIAL_AUTH_FACEBOOK_SECRET = 'e804e12084f6c31e253bb9d20de6ba4e'  # App Secret
 #SOCIAL_AUTH_TWITTER_SECRET = 'mwtdcUe4uOvvjDk2Ausb45gsasdasdasashw65454TNSx'
 SOCIAL_AUTH_GITHUB_KEY = 'ca6c4169d8ba86ccd48f'
 SOCIAL_AUTH_GITHUB_SECRET = '53c40b7ee9c7bc3a512986c89967af765ee1e050'
+# add google ouath in future and fix my twitter account(add email form old account)
 
 
 #captcha:
