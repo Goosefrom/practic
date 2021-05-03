@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django', # <-- https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'django_web_app.urls'
@@ -65,6 +67,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
@@ -102,6 +107,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -130,6 +142,17 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+
+# https://studygyaan.com/django/how-to-add-social-login-to-django
+SOCIAL_AUTH_FACEBOOK_KEY = '457298425681347'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'e804e12084f6c31e253bb9d20de6ba4e'  # App Secret
+#SOCIAL_AUTH_TWITTER_KEY = '9TD8f5fhasdsbf4w61GSM9'
+#SOCIAL_AUTH_TWITTER_SECRET = 'mwtdcUe4uOvvjDk2Ausb45gsasdasdasashw65454TNSx'
+SOCIAL_AUTH_GITHUB_KEY = 'ca6c4169d8ba86ccd48f'
+SOCIAL_AUTH_GITHUB_SECRET = '53c40b7ee9c7bc3a512986c89967af765ee1e050'
+
 
 #captcha:
 #html: 6LeDcoYaAAAAAH5sXXnvjlQ-F0hNrVKnnr8HrkeU
