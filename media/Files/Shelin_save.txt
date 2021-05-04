@@ -1,0 +1,142 @@
+TITLE <LAB-1>
+.686
+.model flat, stdcall
+option casemap: none
+.data
+    input_arr_1 db -55,  25,   64,   -121,   -50, -9,  -27 
+    input_arr_2 db -21, -25,  -100, -55,  8,   64,  -34
+    input_arr_3 db 58,  -70,  50,   -33, 10,  -100,  34  
+    input_arr_4 db 88,   -50, -66,   50,  -7,  45,  121
+    LEN_input_arr EQU $ -input_arr_4;                            длина выходного массива
+    output_arr_1 dd LEN_input_arr DUP(0AABBCCDDh);               выходной массив
+    output_arr_2 db LEN_input_arr DUP(088h);                     признаки замен
+    AF db 4 DUP(0DDh);                                           временный массив для 4 элементов с одинаковымы индексами    
+    LENAF EQU $ -AF;                                             длина масива 
+.code
+start:
+    xor esp, esp
+    xor ebp, ebp
+    xor esi, esi
+    xor eax, eax
+    xor edi, edi
+    xor ebx, ebx
+    xor ecx, ecx
+    mov si, 0 ;                                                  счетчик массива (gloabal loop counter)
+
+collection_elementov_with_same_index:
+    mov dl, [input_arr_1+si] ;                                   заполняем массив для 4 элементов с одинаковыми индексами
+    mov [AF+0], dl
+    mov dl, [input_arr_2+si]
+    mov [AF+1], dl
+    mov dl, [input_arr_3+si]
+    mov [AF+2], dl
+    mov dl, [input_arr_4+si]
+    mov [AF+3], dl
+    
+    mov dl, 0 ;                                                  freeing up register
+    mov ch, 0 ;                                                  main sort loop counter
+    mov bl, LENAF - 1;                                           отнимаем 1, так как отсчёт индексов начинается с 0, а значит для сравнения с посл 
+    
+ start_bubble:
+
+        mov cl, 0 ;inner sort loop counter
+        mov di, 0 ; 
+        mov bh, bl
+        sub bh, cl
+       
+innerloop:
+            mov dl, [AF+di]
+            mov dh, [AF+di+1]
+            cmp dl, dh
+            jl swap
+            jmp noswap
+            swap:
+                mov [AF+di+1], dl
+                mov [AF+di], dh
+            noswap:
+                inc di
+        inc cl
+        cmp cl, bh
+        jl innerloop
+
+    inc ch
+    cmp ch, bl
+    jl start_bubble
+    
+    mov ax, 0
+    mov al, 0FFh; - ознака відсутності змін - код "FFh"
+    mov di, 0
+
+    proverka_for_Range:
+                       cmp [AF+di], -120
+                       jl yesInFirstRange
+                       jmp notInFirstRange
+                    
+             
+    notInFirstRange:
+                    cmp [AF+di], -20
+                    jg ifMaybeInSecondRange
+                    jmp notInFandSandTRange_or_catch_oznak
+
+    ifMaybeInSecondRange:
+                                cmp [AF+di], 20
+                                jl yesInSecondRange
+                                jmp notInSecondRangeMaybeInThirdRange
+
+    notInSecondRangeMaybeInThirdRange:
+                                       cmp [AF+di], 120
+                                       jg yesInThirdRange
+                                       jmp notInFandSandTRange_or_catch_oznak
+
+    yesInFirstRange:
+                    mov [AF+di], -120
+                    mov al, 0F0h;                                                   - ознака змін на "+120" - код "0Fh"; 
+                    jmp notInFandSandTRange_or_catch_oznak
+
+                    
+    yesInSecondRange:
+                     mov[AF+di], 0
+                     mov al, 000h;                                                  - ознака зміни на "0" - код "00h";
+                     jmp notInFandSandTRange_or_catch_oznak
+
+
+    yesInThirdRange:
+                    mov[AF+di], 120
+                    mov al, 00Fh
+
+        
+    notInFandSandTRange_or_catch_oznak:
+        mov[output_arr_2+si], al
+ 
+        inc di
+        cmp di, LENAF
+        jl proverka_for_Range
+        
+        mov eax, 0
+        mov ebx, 0
+        mov edx, 0
+    
+        mov al, [AF]
+        mov ah, [AF+1]
+        mov bl, [AF+2]
+        shl ebx, 16
+        mov dl, [AF+3]
+        shl edx, 24
+
+        or eax, ebx
+        or eax, edx
+
+        shl si, 2
+        mov [output_arr_1 + si], eax
+        shr si, 2
+
+        mov [AF], 0
+        mov [AF+1], 0
+        mov [AF+2], 0
+        mov [AF+3], 0
+
+        inc si
+        cmp si, LEN_input_arr
+        jl collection_elementov_with_same_index
+        
+end start
