@@ -15,7 +15,7 @@ def register(request):
         cap_server_response = requests.post(url=cap_url, data=cap_data)
         cap_json = json.loads(cap_server_response.text)
         if cap_json['success'] == False:
-            messages.success(request, "Invalid ReCaptcha")
+            messages.warning(request, "Invalid ReCaptcha")
             return render(request, 'users/register.html', {'form': form})
         if (form.is_valid() and cap_json['success'] == True):
             form.save()
