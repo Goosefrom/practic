@@ -5,19 +5,19 @@ Facebook (https://developers.facebook.com/docs/facebook-login)
 Google (https://developers.google.com/identity/)
 Інші соцмережі на ваш вибір (необов'язково)
 
-##Whoa, It Worked
+## Whoa, It Worked
 
 Запуск: для коректної роботи аутентифікації через google та facebook(тут провина facebook api) треба запускати з неявним localhost, тобто: 
 Windows: `python manage.py runserver localhost:8000`
 Mac\Linux: `python3 manage.py runserver localhost:8000`
 
->(Перед розгортанням на хостингу - пройтись по адмін панелям соц.мереж і додати IP-адресу в whitelist-и)
+> (Перед розгортанням на хостингу - пройтись по адмін панелям соц.мереж і додати IP-адресу в whitelist-и)
 
 Додано файл `requirements.txt` - для інсталяції всього добра: 
 Windows: `py -m pip install -r requirements.txt`
 Mac\Linux: `python3 -m pip3 install -r requirements.txt`
 
-##Screenshots:
+## Screenshots:
 
 + HomeScreen
 ![HomeScreen](https://github.com/Vionikk/djangoFileHostingAppDesign/blob/main/README/HomeScreen.png?raw=true)

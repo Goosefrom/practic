@@ -1,11 +1,11 @@
 {% extends "blog/base.html" %}
 {% block content %}
     {% if page_obj.paginator.count == 0 %}
-          <h1 class="mb-3">User {{ view.kwargs.username }} don't have files</h1>
+          <h2 class="mb-3">User {{ view.kwargs.username }} don't have files</h2>
     {% elif page_obj.paginator.count == 1 %}
-          <h1 class="mb-3">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} file</h1>
+          <h2 class="mb-3">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} file</h2>
     {% elif page_obj.paginator.count > 1 %}
-          <h1 class="mb-3">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} files</h1>
+          <h2 class="mb-3">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} files</h2>
     {% endif %}
     {% for post in posts %}
         <article class="media content-section">
