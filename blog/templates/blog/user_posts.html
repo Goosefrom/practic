@@ -1,6 +1,12 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    <h1 class="mb-3">Files of {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+    {% if page_obj.paginator.count == 0 %}
+          <h1 class="mb-3">User {{ view.kwargs.username }} don't have files</h1>
+    {% elif page_obj.paginator.count == 1 %}
+          <h1 class="mb-3">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} file</h1>
+    {% elif page_obj.paginator.count > 1 %}
+          <h1 class="mb-3">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} files</h1>
+    {% endif %}
     {% for post in posts %}
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
