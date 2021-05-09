@@ -1,6 +1,6 @@
 body {
-  background: #fafafa;
-  color: #333333;
+  background: #ffffffff;
+  color: #000000ff;
   margin-top: 0;
 }
 
@@ -34,6 +34,7 @@ ul {
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .article-title {
