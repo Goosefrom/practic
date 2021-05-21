@@ -8,10 +8,95 @@
     color: maroon; /* Цвет текста */
     font-weight: 600; /* Жирное начертание */
    }
+    .gradient-all {
+  font-size: 2em;
+  background: linear-gradient(135deg, #12BCB0 20%, #FABE0E 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding: 0.1em 0.3em ;
+  border: 3px solid transparent;
+  border-image: linear-gradient(135deg, #12BCB0 20%, #FABE0E 70%);
+  border-image-slice: 1;
+}
+.text_1 {
+margin: 1%;
+}
+.text_2 {
+margin: 1%;
+}
+
+
+
+.five {
+  background: #F7F4ED;
+  padding: 50px 20px 50px 170px;
+  text-align: center;
+}
+.five h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  position: relative;
+  color: #587493;
+  font-size: 2.5em;
+  font-weight: normal;
+  display: inline-block;
+  margin: 0;
+  line-height: 1;
+  padding: 8px 20px 8px 2px;
+  border-top: 4px solid;
+}
+.five h1:before {
+  content: "ЙОБ";
+  position: absolute;
+  top: -10px;
+  left: -160px;
+  font-size: 1.2em;
+  transform: rotate(-25deg);
+  font-family: 'Marck Script', cursive;
+}
+.five h1:after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 4px;
+  right: 0;
+  bottom: -4px;
+  background: #587493;
+}
+@media (max-width: 580px) {
+  .five {padding-left: 130px;}
+  .five h1 {font-size: 2em;}
+  .five h1:before {left: -130px;}
+}
+@media (max-width: 480px) {
+  .five {padding-left: 100px;}
+  .five h1 {
+    font-size: 1.5em;
+    padding-right: 10px;
+}
+  .five h1:before {left: -100px;}
+}
+@media (max-width: 380px) {
+  .five {padding-left: 90px;}
+  .five h1 {font-size: 1.3em;}
+  .five h1:before {left: -88px;}
+}
+
 </style>
-    <h1>Завданння:</h1>
+    <div class="text_1">
+        <div class="gradient-all">Завдання:</div>
+        <div class="text_2">
+            <h2>Хапай-файлопередай</h2>
+            <p align="justify">Розробити сервіс поширення фалів на кшталт MEGA, RGhost автор файлу отримує унікальне посилання прямого доступу, яке він може передати іншому користувачу автор може переглянути всі свої розміщені файли автор може задати “час життя” файлу після закінчення “часу життя” файл перестає бути доступний всім, але залишається в системі Інтерфейс користувача повинен містити перелік доступних файлів випадкове відображення файлу випадкове відображення файлу, який перестане бути доступним менше ніж за певний час(годину, добу, тиждень) статистику: скільки всього було завантажено файлів, скільки доступно зараз, скільки перестане бути доступними через певний час (добу, годину) Інтеграція з соціальними мережами: Додати вхід через популярні соціальні мережі: Facebook (https://developers.facebook.com/docs/facebook-login) Google (https://developers.google.com/identity/) Інші соцмережі на ваш вибір (необов'язково)</p>
+        </div>
+    </div>
 
-    <h2>Хапай-файлопередай</h2>
 
-    <p align="justify">Розробити сервіс поширення фалів на кшталт MEGA, RGhost автор файлу отримує унікальне посилання прямого доступу, яке він може передати іншому користувачу автор може переглянути всі свої розміщені файли автор може задати “час життя” файлу після закінчення “часу життя” файл перестає бути доступний всім, але залишається в системі Інтерфейс користувача повинен містити перелік доступних файлів випадкове відображення файлу випадкове відображення файлу, який перестане бути доступним менше ніж за певний час(годину, добу, тиждень) статистику: скільки всього було завантажено файлів, скільки доступно зараз, скільки перестане бути доступними через певний час (добу, годину) Інтеграція з соціальними мережами: Додати вхід через популярні соціальні мережі: Facebook (https://developers.facebook.com/docs/facebook-login) Google (https://developers.google.com/identity/) Інші соцмережі на ваш вибір (необов'язково)</p>
+
+<div class="five"><h1>ТВОЮ МАТЬ, КРАСОТИЩА КАКАЯ</h1></div>
+
+
 {% endblock content %}
+
+1z
