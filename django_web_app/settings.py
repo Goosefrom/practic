@@ -154,7 +154,16 @@ SOCIAL_AUTH_GITHUB_KEY = 'ca6c4169d8ba86ccd48f'
 SOCIAL_AUTH_GITHUB_SECRET = '53c40b7ee9c7bc3a512986c89967af765ee1e050'
 # add google ouath in future and fix my twitter account(add email form old account)
 
-
 #captcha:
 #html: 6LeDcoYaAAAAAH5sXXnvjlQ-F0hNrVKnnr8HrkeU
 #code: 6LeDcoYaAAAAACgrY1SN-GuVF_jCZAnizneyUenh
+
+
+#password reset: (See: https://support.google.com/accounts/answer/6010255?hl=en for details.)
+#https://dev.to/yahaya_hk/password-reset-views-in-django-2gf2
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'HOST_GMAIL'  #<-----------------------
+EMAIL_HOST_PASSWORD = 'HOST_PASSWORD' #<-----------------------
+EMAIL_USE_TLS = True
