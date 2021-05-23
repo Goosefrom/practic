@@ -11,9 +11,15 @@
         <small class="text-muted  text-align-right">{{ object.date_upload }}</small>
         </div>
         {% if object.author != user %}
-          <div class="form-group mt-0 pt-0 d-flex justify-content-end">          
+        {% if post.accessability == True %}
+        <div class="form-group mt-0 pt-0 d-flex justify-content-end">
             <a href="{{ object.file.url }}" download class="btn btn-primary flex-last" type="submit"><i class="fas fa-download"></i> Downlaod</a>
           </div>
+        {% elif post.accessability == False %}
+        <div class="form-group mt-0 pt-0 d-flex justify-content-end">
+            <p class="article-content text-justify text-truncate overflow-hidden">File disabled</p>
+          </div>
+        {% endif %}
         {% endif %}
         <hr>
         {% if object.author == user %}
@@ -23,6 +29,7 @@
           </div>
         {% endif %}
       </div>
+      {% if post.accessability == True %}
       <div>
         {% if object.file %}
           {% if object.extension == '.jpg' or object.extension == 'jpeg' or object.extension == 'png' %}
@@ -40,6 +47,12 @@
           {% endif %}
         {% endif %}
       </div>
+      {% elif post.accessability == False %}
+      <div>
+        <p class="article-content text-justify text-truncate overflow-hidden">File disabled</p>
+      </div>
+      {% endif %}
+
       <h2>{{ object.title }}</h2>
       <p class="article-content">{{ object.content }}</p>
     </div>
