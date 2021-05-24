@@ -2,6 +2,7 @@
 {% block content %}
     {% for post in posts %}
     {% if post.accessability == True %}
+<div class="jumbotron mt-3 shadow-lg">
       <article class="media content-section shadow">
         <a href="{{ post.author.profile.image.url }} " target="_blank"> <img src="{{ post.author.profile.image.url }}  " alt="" class="article-img rounded-circle img-thumbnail img-fluid shadow">
         </a>
@@ -30,7 +31,9 @@
       
         </div>
       </article>
+  </div>
     {% elif post.accessability == False %}
+<div class="jumbotron mt-3 shadow-lg">
     <article class="media content-section shadow">
         <a href="{{ post.author.profile.image.url }} " target="_blank"> <img src="{{ post.author.profile.image.url }}  " alt="" class="article-img rounded-circle img-thumbnail img-fluid shadow">
         </a>
@@ -59,6 +62,7 @@
 
         </div>
       </article>
+  </div>
     {% endif %}
     {% endfor %}
     {% if is_paginated %}

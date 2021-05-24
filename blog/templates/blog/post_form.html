@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="jumbotron mt-3 shadow-lg">
     <div class="content-section pt-2 mt-3 shadow-lg"  >
           <form action="" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
@@ -17,4 +18,5 @@
           </form>
          
       </div>
+</div>
 {% endblock content %}
