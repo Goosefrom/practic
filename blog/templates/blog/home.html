@@ -16,7 +16,7 @@
 
 
 
-          <h2><a class="article-title text-justify " href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+          <h2><a class="article-title text-justify text-wrap" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
           <div class="d-flex justify-content-between">
             <p class="article-content text-justify text-truncate overflow-hidden">{{ post.content }}</p>
             {% if post.file %}

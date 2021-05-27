@@ -43,7 +43,7 @@
                     <input type="text" name="q" type="text" value="{{ request.GET.q }}" placeholder="Search Here..." />
                     <button type="button" onclick="searchform.submit()" class=" text-dark my-color btn-primary"><i class="fa fa-search"></i></button>
                 </form>
-              
+              <!--- https://bootstrap-4.ru/docs/4.0/components/navbar/ --->
                     {% if user.is_authenticated %}
                     <a href="{% url 'blog-home' %} " class="btn text-light m-2"><i class="fas fa-home"></i> Home</a>
                     <a href="{% url 'user-posts' user %}" class="btn text-light m-2"><i class="fas fa-user-shield"></i> My Files</a>
