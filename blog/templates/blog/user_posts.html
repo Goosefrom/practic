@@ -1,13 +1,25 @@
 {% extends "blog/base.html" %}
 {% block content %}
+<style>
+.content-block {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 2px solid #17a2b8;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+</style>
+<article class="content-block">
     {% if page_obj.paginator.count == 0 %}
-          <h2 class="mb-3">User {{ view.kwargs.username }} don't have files</h2>
+          <h2 class="mb-1">User {{ view.kwargs.username }} don't have files</h2>
     {% elif page_obj.paginator.count == 1 %}
-          <h2 class="mb-3">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} file</h2>
+          <h2 class="mb-1">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} file</h2>
     {% elif page_obj.paginator.count > 1 %}
-          <h2 class="mb-3">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} files</h2>
+          <h2 class="mb-1">User {{ view.kwargs.username }} have {{ page_obj.paginator.count }} files</h2>
     {% endif %}
     {% for post in posts %}
+</article>
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
           <div class="media-body">
