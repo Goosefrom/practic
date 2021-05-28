@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/7d32b26b-ae28-49cb-9790-00b1213a082d/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/PythonPractic",
+    "appService.deploySubpath": "."
+}
