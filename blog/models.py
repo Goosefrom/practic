@@ -9,7 +9,7 @@ import datetime
 # по ідеї захист від завантаження по url виконує сам http сервер, знайшов тільки як реалізувати на apache)
 class Post(models.Model):
 	title = models.CharField(max_length=100)
-	file = models.FileField(null=True,blank=True,upload_to='Files')
+	file = models.FileField(null=False,blank=False,upload_to='Files')
 	content = models.TextField()
 	date_posted = models.DateTimeField(default=timezone.now)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
