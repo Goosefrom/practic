@@ -9,10 +9,10 @@ from django.core.exceptions import ValidationError
 # https://stackoverflow.com/questions/28166784/restricting-access-to-private-file-downloads-in-django
 # по ідеї захист від завантаження по url виконує сам http сервер, знайшов тільки як реалізувати на apache)
 
-def file_size(value): # add this to some file where you can import it from
+def file_size(value): # file size checker
     limit = 50 * 1024 * 1024
     if value.size > limit:
-        raise ValidationError('File too large. Size should not exceed 50 MiB.')
+        raise ValidationError('File too large. Size should not exceed 50 MiB.') #https://i.ytimg.com/vi/OTA7Z00NeAY/hqdefault.jpg
 
 class Post(models.Model):
 	title = models.CharField(max_length=100)
@@ -32,5 +32,3 @@ class Post(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('post-detail', kwargs={'pk': self.pk})
-
-        
