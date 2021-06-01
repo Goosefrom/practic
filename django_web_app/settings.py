@@ -144,6 +144,7 @@ LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
+MAX_UPLOAD_SIZE = 104857600 #100 MB max soze of file
 
 # https://studygyaan.com/django/how-to-add-social-login-to-django
 SOCIAL_AUTH_FACEBOOK_KEY = '457298425681347'  # App ID
