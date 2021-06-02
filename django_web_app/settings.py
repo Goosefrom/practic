@@ -144,16 +144,17 @@ LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
-MAX_UPLOAD_SIZE = 104857600 #100 MB max soze of file
+MAX_UPLOAD_SIZE = 52428800 #50 MB max soze of file [x * 1024 * 1024]
 
 # https://studygyaan.com/django/how-to-add-social-login-to-django
 SOCIAL_AUTH_FACEBOOK_KEY = '457298425681347'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'e804e12084f6c31e253bb9d20de6ba4e'  # App Secret
-#SOCIAL_AUTH_TWITTER_KEY = '9TD8f5fhasdsbf4w61GSM9'
+#SOCIAL_AUTH_TWITTER_KEY = '9TD8f5fhasdsbf4w61GSM9' # залишу потомкам, хай єбуться з цим самі, мене заблочив твітер, виявляється не можна перепідв'язувати пошту з одного акаунту на інший :D )
 #SOCIAL_AUTH_TWITTER_SECRET = 'mwtdcUe4uOvvjDk2Ausb45gsasdasdasashw65454TNSx'
 SOCIAL_AUTH_GITHUB_KEY = 'ca6c4169d8ba86ccd48f'
 SOCIAL_AUTH_GITHUB_SECRET = '53c40b7ee9c7bc3a512986c89967af765ee1e050'
 # add google ouath in future and fix my twitter account(add email form old account)
+# there may be an update/fix today :D
 
 #captcha:
 #html: 6LeDcoYaAAAAAH5sXXnvjlQ-F0hNrVKnnr8HrkeU

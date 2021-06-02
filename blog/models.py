@@ -12,7 +12,7 @@ from django.core.exceptions import ValidationError
 def file_size(value): # file size checker
     limit = 50 * 1024 * 1024
     if value.size > limit:
-        raise ValidationError('File too large. Size should not exceed 50 MiB.') #https://i.ytimg.com/vi/OTA7Z00NeAY/hqdefault.jpg
+        raise ValidationError('File too large. Size should not exceed 50 MB.') # https://i.ytimg.com/vi/OTA7Z00NeAY/hqdefault.jpg
 
 class Post(models.Model):
 	title = models.CharField(max_length=100)
