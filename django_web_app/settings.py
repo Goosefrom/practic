@@ -161,8 +161,8 @@ SOCIAL_AUTH_FACEBOOK_KEY = '457298425681347'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'e804e12084f6c31e253bb9d20de6ba4e'  # App Secret
 #SOCIAL_AUTH_TWITTER_KEY = '9TD8f5fhasdsbf4w61GSM9' # залишу потомкам, хай єбуться з цим самі, мене заблочив твітер, виявляється не можна перепідв'язувати пошту з одного акаунту на інший :D )
 #SOCIAL_AUTH_TWITTER_SECRET = 'mwtdcUe4uOvvjDk2Ausb45gsasdasdasashw65454TNSx'
-SOCIAL_AUTH_GITHUB_KEY = 'ca6c4169d8ba86ccd48f'
-SOCIAL_AUTH_GITHUB_SECRET = '53c40b7ee9c7bc3a512986c89967af765ee1e050'
+SOCIAL_AUTH_GITHUB_KEY = '4cb51394354f6f51337c'
+SOCIAL_AUTH_GITHUB_SECRET = 'c9ddce0bb9d72597f85e02b61f70957ee5d8c154'
 # add google ouath in future and fix my twitter account(add email form old account)
 # there may be an update/fix today :D
 
@@ -176,6 +176,6 @@ SOCIAL_AUTH_GITHUB_SECRET = '53c40b7ee9c7bc3a512986c89967af765ee1e050'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'HOST_GMAIL'  #<-----------------------
-EMAIL_HOST_PASSWORD = 'HOST_PASSWORD' #<-----------------------
+EMAIL_HOST_USER = 'IrisInMountains@gmail.com'  #<-----------------------
+EMAIL_HOST_PASSWORD = 'Ares12345' #<-----------------------
 EMAIL_USE_TLS = True
