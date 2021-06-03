@@ -1,0 +1,1 @@
+web: gunicorn practic.wsgi --log-file -
