@@ -12,3 +12,4 @@ sqlparse==0.4.1
 urllib3==1.26.3
 image==1.5.33
 psycopg2==2.8.6
+dj-database-url==0.5.0
