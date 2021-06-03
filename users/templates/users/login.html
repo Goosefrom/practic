@@ -1,6 +1,9 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 <style>
     .content-section{
     width: 75%;
@@ -26,9 +29,8 @@
                 <button class="btn btn-outline-info" type="submit">Login</button>
             </div>
              <div class="card-body row">
-                 <div class="small"><a href="/#"><img src="/static/images/google.jpg" width="40" height="40"></a></div>
+                 <div class="small"><a href="{% provider_login_url 'google' %}"><img src="/static/images/google.jpg" width="40" height="40"></a></div>
                  <div class="small"><a href="{% url 'social:begin' 'facebook' %}"><img src="/static/images/facebook.jpg" width="40" height="40"></a></div>
-                 <div class="small"><a href="{% url 'social:begin' 'facebook' %}"><img src="/static/images/twitter.png" width="40" height="40"></a></div>
                  <div class="small"><a href="{% url 'social:begin' 'github' %}"><img src="/static/images/github.png" width="40" height="40"></a></div>
             </div>
         </form>
