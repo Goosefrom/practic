@@ -1,1 +1,1 @@
-web: gunicorn hapay-faylopereday.wsgi --log-file -
+web: gunicorn practic.wsgi --log-file -
