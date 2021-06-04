@@ -27,7 +27,7 @@ SECRET_KEY = '=m-e6oov5b2gv7o0af788&v5zgazj5-$x(67e$^tft^9y3-1x$'
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['hapay-faylopereday.herokuapp.com']
 
 
 # Application definition
