@@ -27,7 +27,7 @@ SECRET_KEY = '=m-e6oov5b2gv7o0af788&v5zgazj5-$x(67e$^tft^9y3-1x$'
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['hapay-faylopereday.herokuapp.com']
+ALLOWED_HOSTS = ['hapay-faylopereday.herokuapp.com','localhost']
 
 
 # Application definition
@@ -148,7 +148,7 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-SITE_ID = 2
+SITE_ID = 3
 
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
