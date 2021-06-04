@@ -179,3 +179,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'IrisInMountains@gmail.com'  #<-----------------------
 EMAIL_HOST_PASSWORD = 'Ares12345' #<-----------------------
 EMAIL_USE_TLS = True
+
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
